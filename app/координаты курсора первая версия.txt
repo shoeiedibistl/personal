@@ -1,0 +1,51 @@
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////// Слежение фоткой за курсором //////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+const cursorField = document.querySelectorAll(".cursor-grid__field");
+let coordsX = [];
+let coordsY = [];
+let coords = [];
+
+function getCoords() {
+  cursorField.forEach((field) => {
+    coordsY.push([Math.ceil(field.getBoundingClientRect().top), Math.floor(field.getBoundingClientRect().top + Math.floor(field.getBoundingClientRect().height))]);
+    coordsX.push([Math.ceil(field.getBoundingClientRect().left), Math.floor(field.getBoundingClientRect().left + Math.floor(field.getBoundingClientRect().width))]);
+    coords.push([
+      [Math.ceil(field.getBoundingClientRect().top), Math.floor(field.getBoundingClientRect().top + Math.floor(field.getBoundingClientRect().height))],
+      [Math.ceil(field.getBoundingClientRect().left), Math.floor(field.getBoundingClientRect().left + Math.floor(field.getBoundingClientRect().width))],
+    ]);
+  });
+}
+
+getCoords();
+
+let imgColumn = null;
+let imgRow = null;
+
+const getMouseMove = (e) => {
+  if (e.clientX > coordsX[0][0] && e.clientX < coordsX[0][1]) imgColumn = 0;
+  else if (e.clientX > coordsX[2][0] && e.clientX < coordsX[2][1]) imgColumn = 2;
+  else imgColumn = 1;
+
+  if (e.clientX < coordsX[0][0] || e.clientX > coordsX[2][1]) imgRow = 1;
+  // console.log(imgColumn, imgRow);
+  // console.log(document.querySelector(".site").offsetWidth / 3);
+};
+
+document.addEventListener("mousemove", getMouseMove);
+
+// Остановить слежку (thug)
+
+function stopMouseMove() {
+  document.removeEventListener("mousemove", getMouseMove);
+  setTimeout(() => document.addEventListener("mousemove", getMouseMove), 2000);
+}
+
+// Просто для теста. А вообще stopMouseMove() запускать по нажатию на аву:
+setTimeout(() => stopMouseMove(), 2000);
+
+// console.log(document.querySelector(".site").offsetWidth / 3);
+// console.log(document.querySelector(".site").offsetHeight / 3);
+console.log(document.querySelector(".site").offsetWidth);
+console.log(document.querySelector(".site").offsetHeight);

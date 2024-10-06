@@ -1,0 +1,35 @@
+.text__gradient_dark {
+  background: -webkit-linear-gradient(-140deg, #222d70, #1285f2, #23a6df, #435daa, #593fad); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(-140deg, #222d70, #1285f2, #23a6df, #435daa, #593fad); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: 500%;
+  animation: gradient 10s ease infinite;
+  /* animation: gradient 5s ease infinite; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0b2349;
+}
+
+.text__gradient_light {
+  background: -webkit-linear-gradient(-140deg, #fcf22a, #f4f686, #f0fb1f, #f4af30, gold); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(-140deg, #fcf22a, #f4f686, #f0fb1f, #f4af30, gold); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: 500%;
+  animation: gradient 10s ease infinite;
+  /* animation: gradient 5s ease infinite; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0b2349;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

@@ -1,0 +1,229 @@
+.red-square {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  /* background-color: red; */
+  /* border: 1px solid #333; */
+  /* box-shadow: 0 0 8px #333; */
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  /* transition: top ease-in-out 0.5s, left ease-in-out 0.5s; */
+  /* transition: all ease-out 0.3s, border-radius 0.15s 0.15s; */
+  transition: all ease-out 0.3s;
+  /* transition: all ease-out 10s; */
+  z-index: 9;
+  box-shadow: 0 0 8px #999;
+  opacity: 0;
+  font-family: "Cutive Mono";
+  overflow: hidden;
+  padding: 0;
+  visibility: hidden;
+}
+
+.red-square.show {
+  /* animation: red-square-show 1s; */
+  top: 50% !important;
+  left: 50% !important;
+  width: 540px;
+  /* height: 600px; */
+  height: min-content;
+  max-height: 99vh;
+  border-radius: 0;
+  background-color: var(--primary-color);
+  opacity: 1;
+  visibility: visible;
+  padding: 40px;
+  overflow-y: auto;
+  /* transition: all ease-out 0.3s, border-radius 0.15s; */
+
+  /* box-shadow: 0 0 8px #333; */
+}
+
+.red-square__inner {
+  width: 100%;
+  height: 100%;
+  /* opacity: 0; */
+}
+
+.red-square__inner.show {
+  opacity: 1;
+}
+
+@keyframes red-square-show {
+  100% {
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 600px;
+    background-color: blanchedalmond;
+  }
+}
+
+.screen {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  background-color: #ccc;
+  border-radius: 20px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  /* transition: width 3s, height 3s 3s; */
+  transition: 0.5s;
+  margin-bottom: 26px;
+  position: relative;
+  padding: 20px;
+}
+
+.screen::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ccc;
+  bottom: -26px;
+  left: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  transition: left ease-in-out 0.25s, width ease-in-out 0.5s, height ease-in-out 0.5s 0.5s, bottom ease-in-out 0.5s 0.5s;
+  /* transition: left ease-in-out 0.5s 0.5s, width ease-in-out 0.5s 0.5s, height ease-in-out 0.5s, bottom ease-in-out 0.5s; */
+  z-index: -1;
+}
+
+.screen.mobile {
+  width: 60%;
+  aspect-ratio: 9 / 16;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-bottom: 0;
+  padding: 60px 16px;
+}
+
+.screen.mobile::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 80px;
+  border-radius: 2px;
+  background-color: #ccc;
+  bottom: 60%;
+  left: 100.5%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: left ease-in-out 0.5s, width ease-in-out 0.5s, height ease-in-out 0.5s 0.5s, bottom ease-in-out 0.5s 0.5s;
+
+  /* transition: left 0.5s 0.5s, width 0.5s 0.5s, height 0.5s, bottom 0.5s; */
+}
+
+.popup-close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 100%;
+  color: var(--secondary-color);
+  opacity: 0.5;
+}
+
+.site-version {
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 6px 12px;
+  width: 80px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.site-version:hover {
+  background: linear-gradient(#ccc -100%, transparent 80%);
+}
+
+.site-version.active {
+  background: linear-gradient(#ccc -100%, transparent 80%);
+  /* background: none; */
+  font-weight: 600;
+}
+
+.description {
+  margin-bottom: 20px;
+  font-size: 2vh;
+}
+
+.display {
+  width: 100%;
+  height: 100%;
+  background-color: #555;
+  border: 2px solid #333;
+  overflow-y: auto;
+  transition: all 0.5s;
+}
+
+.display__image {
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.camera {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid #888;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all ease-out 0.5s;
+}
+
+.camera.mobile {
+  left: 30%;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+}
+
+.speaker {
+  width: 0;
+  height: 4px;
+  border-radius: 2px;
+  /* border: 2px solid #888; */
+  background-color: #888;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all ease-out 0.5s;
+}
+
+.speaker.mobile {
+  left: 50%;
+  top: 26px;
+  top: 28px;
+  width: 60px;
+}
+
+.phone-button {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 0;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: all ease-out 0.5s;
+}
+
+.phone-button.mobile {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 20px;
+  border: 2px solid #888;
+  border-radius: 10px;
+}

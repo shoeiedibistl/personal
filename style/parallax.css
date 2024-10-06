@@ -1,0 +1,22 @@
+.body {
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-theme-stars {
+  position: absolute;
+  background-image: url("../img/stars.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 102%;
+  height: 102%;
+  transition: all 0.1s ease, opacity 0.6s, visibility 0.6s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.dark-theme-stars.show {
+  opacity: 0.4;
+  visibility: visible;
+}
